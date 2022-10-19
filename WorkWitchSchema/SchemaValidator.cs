@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
-namespace DummyDB_Task4
+namespace DummyDB_Task4.WorkWitchSchema
 {
     class SchemaValidator
     {
@@ -82,7 +82,7 @@ namespace DummyDB_Task4
                         break;
                 }
             }
-        
+
             return true;
         }
         public static Schema GetSchema(string path)
@@ -109,7 +109,7 @@ namespace DummyDB_Task4
             string errorAccured = $"Error accured! In raw {raw} and column {column} wrong Type!\n";
             string correctionInfo = $"In line: {raw} element: {line[column]}";
 
-            throw new FormatException(String.Concat(errorAccured, correctionInfo));
+            throw new FormatException(string.Concat(errorAccured, correctionInfo));
         }
 
         private static void DisplayErrorMessage(int column, string[] line)
@@ -117,7 +117,7 @@ namespace DummyDB_Task4
             string errorAccured = $"Error accured! In column {column} and element: {line[column]}";
             string correctionInfo = $"In column: {column} element: {line[column]}";
 
-            throw new FormatException(String.Concat(errorAccured, correctionInfo));
+            throw new FormatException(string.Concat(errorAccured, correctionInfo));
         }
     }
 }

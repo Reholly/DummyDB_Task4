@@ -5,6 +5,16 @@
       "name": "id",
       "type": "int",
       "isPrimary": true
+    },
+    {
+      "name": "name",
+      "type": "string",
+      "isPrimary": false
+    },
+    {
+      "name": "cost",
+      "type": "int",
+      "isPrimary": false
     }
   ]
 }

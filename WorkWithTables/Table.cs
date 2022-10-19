@@ -1,4 +1,6 @@
-﻿namespace DummyDB_Task4
+﻿using DummyDB_Task4.WorkWitchSchema;
+
+namespace DummyDB_Task4.WorkWithTables
 {
     class Table
     {
@@ -9,8 +11,13 @@
         public Table(string name, List<Row> rows, Schema schema)
         {
             Name = name;
-            Rows = rows;    
+            Rows = rows;
             Schema = schema;
+        }
+
+        public void AddRow(Row row)
+        {
+            Rows.Add(row);
         }
     }
 }

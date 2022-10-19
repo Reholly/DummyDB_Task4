@@ -1,4 +1,4 @@
-﻿namespace DummyDB_Task4
+﻿namespace DummyDB_Task4.WorkWitchSchema
 {
     class Row
     {
