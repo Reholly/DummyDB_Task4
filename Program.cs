@@ -1,10 +1,12 @@
-﻿namespace DummyDB_Task4
+﻿using Newtonsoft.Json;
+
+namespace DummyDB_Task4
 {
     internal class Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+            Schema schema = JsonConvert.DeserializeObject<Schema>(File.ReadAllText());
         }
     }
 }
