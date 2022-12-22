@@ -1,6 +1,4 @@
-﻿using System.Text;
-using System.Threading.Tasks.Dataflow;
-using DummyDB_Task4.WorkWitchSchema;
+﻿using DummyDB_Task4.WorkWitchSchema;
 using DummyDB_Task4.WorkWithTables;
 
 namespace DummyDB_Task4
@@ -41,7 +39,7 @@ namespace DummyDB_Task4
 
             foreach (var value in table.Rows)
             {
-                lines.Add(String.Join(";", value.Data.Values)S);
+                lines.Add(String.Join(";", value.Data.Values));
             }
 
             File.WriteAllLines(path, lines.ToArray());

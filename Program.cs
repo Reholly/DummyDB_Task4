@@ -18,16 +18,17 @@ namespace DummyDB_Task4
             List<Row> rows = new List<Row>();
 
             Row row1 = new Row();
+
+            // 0 - id; 1 - name; 2 - cost
             row1.Data.Add(schema.Columns[0], 1);
             row1.Data.Add(schema.Columns[1], "War And Piece");
             row1.Data.Add(schema.Columns[2], 245);
 
             rows.Add(row1);
 
-            Table tasble = new Table(schema.Name, rows, schema);
+            Table table = new Table(schema.Name, rows, schema);
 
-            DataWriter.CreateFileByTable(tasble, String.Concat(pathOfProject, "//Data//", schema.Name, ".csv"));
-
+            DataWriter.CreateFileByTable(table, String.Concat(pathOfProject, "//Data//", schema.Name, ".csv"));
         }
     }
 }

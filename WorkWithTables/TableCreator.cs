@@ -23,10 +23,9 @@ namespace DummyDB_Task4.WorkWithTables
                 rows.Add(row);
             }
 
-
-
             return new Table(tableName, rows, schema);
         }
+
         private static object GetValue(string value, SchemaColumn column)
         {
             switch (column.Type)
