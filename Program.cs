@@ -8,13 +8,37 @@ namespace DummyDB_Task4
     {
         static void Main(string[] args)
         {
-            /*
-                Создаю тестовый csv файл на основе Схемы. Там делаю первую тестовую строку. 
-                Затем методом делаю на оснвое таблицы уже файл.
-            */
-            string pathOfProject = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.FullName;
-            Schema schema = JsonConvert.DeserializeObject<Schema>(File.ReadAllText(String.Concat(pathOfProject, "//Schemas//book.json")));
+            string projectPath = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.FullName;
 
+            string schemasPath = String.Concat(projectPath, "//Schemas//");
+            string dataPath = String.Concat(projectPath, "//Data//");
+
+            string userSchemaName = InputJsonSchemaName();
+            string neededSchemaPath = String.Concat(schemasPath, userSchemaName);
+
+            Schema schema = DataWork.GetSchema(neededSchemaPath);
+
+            //Здесь создание тестовой таблицы на основе схемы
+            Table table = CreateTestTable(schema);
+
+            string csvFilePath = String.Concat(dataPath, schema.Name, ".csv");
+            DataWork.CreateFileByTable(table, csvFilePath);
+            
+            //Здесь считывается из файла все в таблицу
+            Table readTable = TableCreator.CreateTableByFile("Books", schema, DataWork.GetFileContent(csvFilePath));        
+            DisplayTestTable(readTable);
+        }
+
+        private static string InputJsonSchemaName()
+        {
+            Console.WriteLine("Введите название json-схемы (пример: book.json):");
+            string userSchemaName = Console.ReadLine();
+
+            return userSchemaName;
+        }
+
+        private static Table CreateTestTable(Schema schema)
+        {
             List<Row> rows = new List<Row>();
 
             Row row1 = new Row();
@@ -28,7 +52,17 @@ namespace DummyDB_Task4
 
             Table table = new Table(schema.Name, rows, schema);
 
-            DataWriter.CreateFileByTable(table, String.Concat(pathOfProject, "//Data//", schema.Name, ".csv"));
+            return table;
+        }
+
+        private static void DisplayTestTable(Table table)
+        {
+            Console.WriteLine(table.Name);
+           
+            foreach(Row row in table.Rows)
+            {
+                Console.WriteLine($"{row.ToString()}");
+            }
         }
     }
 }

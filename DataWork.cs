@@ -1,9 +1,10 @@
 ﻿using DummyDB_Task4.WorkWitchSchema;
 using DummyDB_Task4.WorkWithTables;
+using Newtonsoft.Json;
 
 namespace DummyDB_Task4
 {
-    class DataWriter
+    class DataWork
     {
         public static void CreateFileBySchema(List<string> content, Schema schema, string path)
         {
@@ -45,7 +46,7 @@ namespace DummyDB_Task4
             File.WriteAllLines(path, lines.ToArray());
         }
 
-        public static void AppendToFile(string line, Schema schema, string path)
+        public static void AppendLineToFile(string line, Schema schema, string path)
         {
             try
             {
@@ -67,6 +68,16 @@ namespace DummyDB_Task4
             {
                 Console.WriteLine(ex.Message);
             }
+        }
+
+        public static string[] GetFileContent(string filePath)
+        {
+            return File.ReadAllLines(filePath);
+        }
+
+        public static Schema GetSchema(string schemaPath)
+        {
+            return JsonConvert.DeserializeObject<Schema>(File.ReadAllText(schemaPath));
         }
 
         private static string GetTableHeader(Schema schema)

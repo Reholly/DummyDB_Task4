@@ -13,6 +13,7 @@ namespace DummyDB_Task4.WorkWithTables
             {
 
                 string[] lineElements = content[i].Split(";");
+
                 Row row = new Row();
 
                 for (int j = 0; j < lineElements.Length; j++)
