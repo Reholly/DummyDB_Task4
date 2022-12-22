@@ -25,7 +25,7 @@ namespace DummyDB_Task4
             DataWork.CreateFileByTable(table, csvFilePath);
             
             //Здесь считывается из файла все в таблицу
-            Table readTable = TableCreator.CreateTableByFile("Books", schema, DataWork.GetFileContent(csvFilePath));        
+            Table readTable = TableCreator.CreateTableByFile(schema.Name, schema, DataWork.GetFileContent(csvFilePath));        
             DisplayTestTable(readTable);
         }
 
