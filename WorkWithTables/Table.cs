@@ -1,6 +1,6 @@
 ﻿using DummyDB_Task4.WorkWitchSchema;
 
-namespace DummyDB_Task4.WorkWithTables
+namespace DummyDB_Task4.WorkWitchSchema
 {
     class Table
     {

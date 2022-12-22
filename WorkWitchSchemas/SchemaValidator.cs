@@ -1,5 +1,4 @@
 ﻿using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 
 namespace DummyDB_Task4.WorkWitchSchema
 {
@@ -21,22 +20,18 @@ namespace DummyDB_Task4.WorkWitchSchema
                             if (!int.TryParse(lineElement, out var integer))
                             {
                                 DisplayErrorMessage(i, j, lineElements);
-
-                                return false;
                             }
                             break;
                         case "bool":
                             if (!bool.TryParse(lineElement, out var boolean))
                             {
                                 DisplayErrorMessage(i, j, lineElements);
-                                return false;
                             }
                             break;
                         case "dateTime":
                             if (!DateTime.TryParse(lineElement, out var date))
                             {
                                 DisplayErrorMessage(i, j, lineElements);
-                                return false;
                             }
                             break;
                         default:
@@ -60,22 +55,18 @@ namespace DummyDB_Task4.WorkWitchSchema
                         if (!int.TryParse(lineElement, out var integer))
                         {
                             DisplayErrorMessage(j, lineElements);
-
-                            return false;
                         }
                         break;
                     case "bool":
                         if (!bool.TryParse(lineElement, out var boolean))
                         {
                             DisplayErrorMessage(j, lineElements);
-                            return false;
                         }
                         break;
                     case "dateTime":
                         if (!DateTime.TryParse(lineElement, out var date))
                         {
                             DisplayErrorMessage(j, lineElements);
-                            return false;
                         }
                         break;
                     default:
@@ -98,7 +89,6 @@ namespace DummyDB_Task4.WorkWitchSchema
                 if (!(columnsElements[i] == schema.Columns[i].Name))
                 {
                     DisplayErrorMessage(0, 0, columnsElements);
-                    return false;
                 }
             }
             return true;

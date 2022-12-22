@@ -1,6 +1,5 @@
 ﻿using DummyDB_Task4.WorkWitchSchema;
 using DummyDB_Task4.WorkWithTables;
-using Newtonsoft.Json;
 
 namespace DummyDB_Task4
 {
@@ -10,7 +9,7 @@ namespace DummyDB_Task4
         {
             string projectPath = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.FullName;
 
-            string schemasPath = String.Concat(projectPath, "//Schemas//");
+            string schemasPath = String.Concat(projectPath, "//JSONSchemas//");
             string dataPath = String.Concat(projectPath, "//Data//");
 
             string userSchemaName = InputJsonSchemaName();
