@@ -91,6 +91,7 @@ namespace DummyDB_Task4.WorkWitchSchema
                     DisplayErrorMessage(0, 0, columnsElements);
                 }
             }
+
             return true;
         }
 

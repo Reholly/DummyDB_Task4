@@ -11,7 +11,6 @@ namespace DummyDB_Task4.WorkWithTables
             //Идем с 1 строки, ибо на 0 у нас названия колонок.
             for (int i = 1; i < content.Length; i++)
             {
-
                 string[] lineElements = content[i].Split(";");
 
                 Row row = new Row();
