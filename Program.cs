@@ -23,7 +23,7 @@ namespace DummyDB_Task4
             string csvFilePath = String.Concat(dataPath, schema.Name, ".csv");
             DataWork.CreateFileByTable(table, csvFilePath);
             
-            //Здесь считывается из файла все в таблицу
+            //Здесь считывается из файла все в таблицу   
             Table readTable = TableCreator.CreateTableByFile(schema.Name, schema, DataWork.GetFileContent(csvFilePath));        
             DisplayTestTable(readTable);
         }
